@@ -1,5 +1,6 @@
 from collections import defaultdict
 
+
 def find_anagrams(word_list):
 
     word_hash = defaultdict(list)
