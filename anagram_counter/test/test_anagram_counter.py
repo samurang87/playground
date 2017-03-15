@@ -9,7 +9,7 @@ class TestAnagrams(unittest.TestCase):
 
         # fixture
 
-        word_list = ["mare", "rema", "canto", "conta", "calendario", "locandiera"]
+        word_list = ["mare", "rema", "mare", "canto", "conta", "calendario", "locandiera", "pulcino"]
 
         # execution
 
@@ -17,5 +17,5 @@ class TestAnagrams(unittest.TestCase):
 
         # check
 
-        self.assertListEqual(anagram_groups,
+        self.assertListEqual(sorted(anagram_groups),
                              sorted([["mare", "rema"], ["canto", "conta"], ["calendario", "locandiera"]]))
