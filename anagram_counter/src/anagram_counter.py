@@ -15,6 +15,17 @@ def find_anagrams(word_list):
     return [x for x in list(word_hash.values()) if len(x)>1]
 
 
+def clean_english(a_string):
+
+    a_string = a_string.lower().replace('\n', ' ')
+
+    a_string = re.sub(r"['|’][a-zA-Z](?= )", " ", a_string)
+
+    a_string = re.sub(r'[^a-zA-Z ]', ' ', a_string)
+
+    return a_string
+
+
 if __name__ == '__main__':
 
     text_file = sys.argv[1]
@@ -22,13 +33,7 @@ if __name__ == '__main__':
     with open(text_file, 'r') as a_text_file:
         data = a_text_file.read()
 
-    data = data.lower().replace('\n', ' ')
-
-    data = data.replace("’s", "")
-
-    data = re.sub(r"['|’][a-zA-Z](?= )", "", data)
-
-    data = re.sub(r'[^a-zA-Z ]', '', data)
+    data = clean_english(data)
 
     data = data.split()
 

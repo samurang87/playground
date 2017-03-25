@@ -1,5 +1,5 @@
 import unittest
-from src.anagram_counter import find_anagrams
+from src.anagram_counter import find_anagrams, clean_english
 
 
 class TestAnagrams(unittest.TestCase):
@@ -18,3 +18,9 @@ class TestAnagrams(unittest.TestCase):
 
         self.assertListEqual(sorted(anagram_groups),
                              sorted([["mare", "rema"], ["canto", "conta"], ["calendario", "locandiera"]]))
+
+    def test_clean_english(self):
+
+        a_string = 'if it$%&/(),\n\'fits I \nsits'
+
+        self.assertListEqual(clean_english(a_string).split(), ['if', 'it', 'fits', 'i', 'sits'])
