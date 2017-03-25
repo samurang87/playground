@@ -1,5 +1,4 @@
 import unittest
-
 from src.anagram_counter import find_anagrams
 
 
