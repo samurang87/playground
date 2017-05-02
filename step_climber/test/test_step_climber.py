@@ -37,6 +37,4 @@ class TestClimber(unittest.TestCase):
 
     def test_stair_too_short(self):
 
-        ladder = Stair(0)
-
-        self.assertRaises(StairTooShortException)
+        self.assertRaises(StairTooShortException, Stair, 0)
