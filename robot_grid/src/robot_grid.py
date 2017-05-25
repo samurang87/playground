@@ -10,13 +10,23 @@ Follow up: Imagine, some positions are blocked and the robot cannot cross them.
 """
 
 
-class GridPaths:
+class Grid:
 
-    def __init__(self):
+    """
+    blocks: list of x,y tuples
+    """
+
+    def __init__(self, blocks=None):
 
         self.count = 0
 
+        self.blocks = blocks
+
     def traverse_grid(self, x, y):
+
+        if self.blocks and (x, y) in self.blocks:
+
+            return
 
         if x == 0 and y == 0:
 
