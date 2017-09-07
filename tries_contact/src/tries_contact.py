@@ -7,13 +7,13 @@ def add_word(trie, word):
 
         trie[word[0]] = dict()
 
-    if len(word) == 1:
+    if len(word) > 1:
 
-        trie[word[0]]["*"] = None
+        add_word(trie[word[0]], word[1:])
 
     else:
 
-        add_word(trie[word[0]], word[1:])
+        trie[word[0]]["*"] = None
 
 
 def found_partial():
