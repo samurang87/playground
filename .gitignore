@@ -151,3 +151,4 @@ fabric.properties
 /quicksort/example_input_2.txt
 /quicksort/example_output_2.txt
 /quicksort/output_2.txt
+/tries_contact/*.txt
