@@ -1,11 +1,6 @@
-import sys
-
-
 def add_word(trie, word):
 
-    if word[0] not in trie:
-
-        trie[word[0]] = dict()
+    trie.setdefault(word[0], dict())
 
     if len(word) > 1:
 
@@ -23,15 +18,14 @@ def found_partial():
 
 def count_leaves(partial_trie):
 
-    if '*' in partial_trie:
-
-        found_partial()
-
     for char in partial_trie:
 
         if char != '*':
 
             count_leaves(partial_trie[char])
+
+        else:
+            found_partial()
 
 
 def find_partial(trie, word):
@@ -51,30 +45,24 @@ if __name__ == "__main__":
 
     trie = dict()
 
-    for linenum, line in enumerate(sys.stdin):
+    n = int(input().strip())
 
-        if linenum != 0:
+    for a0 in range(n):
 
-            instruction = line.split(" ")
+        instruction, word = input().strip().split(' ')
 
-            if instruction[0] == "add":
+        if instruction == "add":
 
-                add_word(trie, instruction[1].rstrip())
+            add_word(trie, word)
 
-            elif instruction[0] == "find":
+        elif instruction == "find":
 
-                found_partial.counter = 0
+            found_partial.counter = 0
 
-                try:
+            find_partial(trie, word)
 
-                    find_partial(trie, instruction[1].rstrip())
+            print(found_partial.counter)
 
-                    print(found_partial.counter)
+        else:
 
-                except KeyError:
-
-                    print('KeyError in {}'.format(instruction[1]))
-
-            else:
-
-                raise ValueError('Invalid command!')
+            raise ValueError('Invalid command!')
