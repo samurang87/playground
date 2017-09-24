@@ -19,8 +19,10 @@ def insert(root, data):
             root.right = cur
     return root
 
-
+"""
 def checkBST(root): # can't change function name because of test runner
+
+
 
     if root == None:
 
@@ -57,3 +59,20 @@ def checkBST(root): # can't change function name because of test runner
         else:
 
             return all([checkBST(root.left), checkBST(root.right)]) == True
+
+"""
+
+def checkBST(root):
+
+    def is_bst(node, min_val=root.data, max_val=root.data):
+
+        if node == None:
+            return True
+
+        if node.data < min_val or node.data > max_val:
+            return False
+
+        return is_bst(node.left, min_val, node.data -1) and is_bst(node.right, node.data + 1, max_val)
+
+    return is_bst(root, root.data, root.data)
+

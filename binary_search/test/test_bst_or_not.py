@@ -44,3 +44,21 @@ class TestBinaryOrNot(unittest.TestCase):
         root.right.right = node(4)
 
         self.assertFalse(checkBST(root))
+
+    def test_checkBST_sad_2(self):
+
+        root = node(3)
+
+        root.left = node(2)
+
+        root.left.left = node(1)
+
+        root.left.right = node(4)
+
+        root.right = node(6)
+
+        root.right.left = node(5)
+
+        root.right.right = node(7)
+
+        self.assertFalse(checkBST(root))
