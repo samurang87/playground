@@ -11,7 +11,6 @@ def mergesort(input: List[Any], left_i: int, right_i: int) -> List[Any]:
 
 
 def merge(input: List[Any], left_i: int, right_i: int, mid: int) -> List[Any]:
-    print(input)
     left = input[left_i:mid + 1]
     right = input[mid + 1 : right_i + 1]
 
@@ -58,11 +57,3 @@ def sorted_merge(a: List[int], b: List[int]) -> List[int]:
                 break
     print(count_iter)
     return a
-
-if __name__ == "__main__":
-
-    input = [3, 1]
-
-    mergesort(input, 0, len(input)-1)
-
-    print(input)
